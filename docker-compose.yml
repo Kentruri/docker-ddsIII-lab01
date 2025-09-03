@@ -55,6 +55,17 @@ services:
       timeout: 2s
       retries: 5
 
+  student07:
+    build: ./services/student07
+    container_name: student07
+    ports:
+      - "8107:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/health"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+
   student08:
     build: ./services/student08
     container_name: student08
